@@ -105,23 +105,30 @@ sudo apt install nginx
 ````
 ### 3.2. Configurar o Subdomínio
 ````bash
-sudo mkdir -p /var/www/subdominio
-sudo chown -R $USER:$USER /var/www/subdominio
-sudo chmod -R 755 /var/www/subdominio
+sudo mkdir -p /var/www/sendorder
+sudo chown -R $USER:$USER /var/www/sendorder
+sudo chmod -R 755 /var/www/sendorder
 ````
 ### 3.3. Criar um Arquivo de Configuração do Nginx para o Subdomínio
 ````bash
-sudo nano /etc/nginx/sites-available/subdominio.seudominio.com
+sudo nano /etc/nginx/sites-available/sendorder.nelsondev.com.br
 ````
 Adicione o seguinte conteúdo de exemplo ao arquivo:
 ````bash
 server {
     listen 80;
-    server_name sendOrderToOperator.nelsondev.com.br;
+    server_name sendorder.nelsondev.com.br;
 
-    root /var/www/subdominio;  
-    index index.html;  
+    root /var/www/sendorder;  
+    index index.html;
 
+    # Localização para o Certbot
+    location /.well-known/acme-challenge/ {
+        allow all;
+        root /var/www/sendorder;  # Diretório onde o Certbot coloca os arquivos de verificação
+    }
+
+    # Proxy para o backend
     location / {
         proxy_pass http://localhost:3030;
         proxy_http_version 1.1;
@@ -131,6 +138,7 @@ server {
         proxy_cache_bypass $http_upgrade;
     }
 
+    # Proxy para o endpoint específico
     location /sendXML {
         proxy_pass http://localhost:3030/sendXML;
         proxy_http_version 1.1;
@@ -141,14 +149,15 @@ server {
     }
 
     # Configuração de logs (opcional)
-    error_log /var/log/nginx/sendOrderToOperator_error.log;
-    access_log /var/log/nginx/sendOrderToOperator_access.log;
+    error_log /var/log/nginx/sendorder_error.log;
+    access_log /var/log/nginx/sendorder_access.log;
 }
+
 ````
 ### 3.4. Ativar a Configuração e Reiniciar o Nginx
 ````bash
 # Criar um link simbólico para ativar a configuração
-sudo ln -s /etc/nginx/sites-available/sendOrderToOperator.nelsondev.com.br /etc/nginx/sites-enabled/
+sudo ln -s /etc/nginx/sites-available/sendorder.nelsondev.com.br /etc/nginx/sites-enabled/
 
 # Testar a configuração do Nginx
 sudo nginx -t
@@ -167,7 +176,7 @@ Para configurar um certificado SSL gratuito usando o Let's Encrypt:
 sudo apt install certbot python3-certbot-nginx
 
 # Executar o Certbot para configurar o SSL
-sudo certbot --nginx -d sendOrderToOperator.nelsondev.com.br
+sudo certbot --nginx -d sendorder.nelsondev.com.br
 ````
 
 ### 5.1. Renovação Automática de Certificado
