@@ -99,11 +99,6 @@ Se o `ping` retornar o IP `168.75.86.183`, significa que a configuração está 
    npm install -g pm2
    ```
 
-2. Inicie a aplicação com o PM2:
-   ```bash
-   pm2 start index.js
-   ```
-
 ## Passo 5: Configurar Nginx como Proxy Reverso
 
 1. Instale o Nginx:
