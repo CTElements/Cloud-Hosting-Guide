@@ -1,6 +1,5 @@
 Aqui está um exemplo de um arquivo `README.md` que descreve os passos detalhados para configurar um servidor Ubuntu para rodar uma aplicação Node.js com Nginx e SSL.
 
-```markdown
 # Setup de Aplicação Node.js em Ubuntu com Nginx e SSL
 
 Este documento fornece um guia passo a passo para configurar um servidor Ubuntu para rodar uma aplicação Node.js em um subdomínio usando Nginx como proxy reverso e um certificado SSL usando Certbot (Let's Encrypt).
