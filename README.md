@@ -3,6 +3,7 @@
 Este documento fornece um guia passo a passo para configurar um servidor Ubuntu para rodar uma aplicação Node.js em um subdomínio usando Nginx como proxy reverso e um certificado SSL usando Certbot (Let's Encrypt).
 
 ## Passo 1: Configurar o Diretório do Projeto
+![print-1](https://github.com/user-attachments/assets/d80ca439-7e65-4b31-af71-7fc27dd72b54)
 
 1. Navegue até o diretório `/var`:
    ```bash
