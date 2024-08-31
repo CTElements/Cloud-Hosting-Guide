@@ -172,4 +172,17 @@ Se o `ping` retornar o IP `168.75.86.183`, significa que a configuração está 
    ```bash
    Environment=PATH=/home/ubuntu/.nvm/versions/node/v20.16.0/bin:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:/usr/games:/usr/local/games:/snap/bin:/home/ubuntu/.nvm/versions/node/v20.16.0/bin:/bin:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin
    ```
+## Passo 8: Atualizar o Projeto e Reiniciar o Servidor 
+Atualize o repositório para a versão mais recente:
+````bash
+cd /var/www/app
+````
+Atualize o repositório para a versão mais recente:
+````bash
+sudo git pull
+````
+Reinicie a aplicação Node.js usando o PM2:
+````bash
+pm2 restart index.js
+````
 
