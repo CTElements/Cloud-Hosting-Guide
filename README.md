@@ -152,6 +152,7 @@ Se o `ping` retornar o IP `168.75.86.183`, significa que a configuração está 
    cd app
    sudo npm install
    pm2 start index.js
+   pm2 startup systemd
    sudo env PATH=$PATH:/home/ubuntu/.nvm/versions/node/v20.16.0/bin /home/ubuntu/.nvm/versions/node/v20.16.0/lib/node_modules/pm2/bin/pm2 startup systemd -u ubun
    Environment=PATH=/home/ubuntu/.nvm/versions/node/v20.16.0/bin:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:/usr/games:/usr/local/games:/snap/bin:/home/ubuntu/.nvm/versions/node/v20.16.0/bin:/bin:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin
    ```
