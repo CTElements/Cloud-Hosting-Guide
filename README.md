@@ -12,13 +12,6 @@ Para configurar o DNS e apontar o seu subdomínio para o IP da sua instância (`
    
 2. **Localize a seção de gerenciamento de DNS** para o seu domínio (geralmente chamado de "Gerenciamento de DNS", "Configurações de DNS", ou algo semelhante).
 
-3. **Adicione um registro `A`** para o seu subdomínio:
-
-   - **Tipo de Registro:** A
-   - **Nome/Host:** `app` (ou o subdomínio que deseja usar, como `app` para `app.nelsondev.com.br`)
-   - **Valor/Endereço IPv4:** `168.75.86.183`
-   - **TTL (Time To Live):** Defina como o valor padrão (geralmente 300 segundos).
-
    Exemplo de como deve ser configurado:
    
    | Tipo | Nome | Valor         | TTL  |
