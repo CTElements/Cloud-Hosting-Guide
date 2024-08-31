@@ -3,7 +3,40 @@
 Este documento fornece um guia passo a passo para configurar um servidor Ubuntu para rodar uma aplicação Node.js em um subdomínio usando Nginx como proxy reverso e um certificado SSL usando Certbot (Let's Encrypt).
 
 ## Passo 1: Configurar o Diretório do Projeto
-![print-1](https://github.com/user-attachments/assets/d80ca439-7e65-4b31-af71-7fc27dd72b54)
+
+Para configurar o DNS e apontar o seu subdomínio para o IP da sua instância (`168.75.86.183`), você precisará adicionar um registro DNS no painel de controle do seu provedor de domínio (como GoDaddy, Namecheap, Cloudflare, etc.).
+
+### Passos para Configurar o DNS:
+
+1. **Acesse o painel de controle do seu provedor de domínio.**
+   
+2. **Localize a seção de gerenciamento de DNS** para o seu domínio (geralmente chamado de "Gerenciamento de DNS", "Configurações de DNS", ou algo semelhante).
+
+3. **Adicione um registro `A`** para o seu subdomínio:
+
+   - **Tipo de Registro:** A
+   - **Nome/Host:** `app` (ou o subdomínio que deseja usar, como `app` para `app.nelsondev.com.br`)
+   - **Valor/Endereço IPv4:** `168.75.86.183`
+   - **TTL (Time To Live):** Defina como o valor padrão (geralmente 300 segundos).
+
+   Exemplo de como deve ser configurado:
+   
+   | Tipo | Nome | Valor         | TTL  |
+   |------|------|---------------|------|
+   | A    | app  | 168.75.86.183 | 300  |
+   | CNAME    | www.app  | 168.75.86.183 | 300  |
+
+5. **Salve as alterações**. O DNS pode levar algum tempo para se propagar (geralmente de alguns minutos até 24 horas).
+
+### Verificar Configuração do DNS
+
+Após configurar o DNS, você pode verificar se o subdomínio está apontando corretamente para o IP da sua instância usando o comando `ping` ou uma ferramenta online como [WhatsMyDNS](https://www.whatsmydns.net/).
+
+```bash
+ping app.nelsondev.com.br
+```
+
+Se o `ping` retornar o IP `168.75.86.181`, significa que a configuração está correta.
 
 1. Navegue até o diretório `/var`:
    ```bash
