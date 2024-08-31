@@ -29,7 +29,7 @@ Após configurar o DNS, você pode verificar se o subdomínio está apontando co
 ping app.nelsondev.com.br
 ```
 
-Se o `ping` retornar o IP `168.75.86.181`, significa que a configuração está correta.
+Se o `ping` retornar o IP `168.75.86.183`, significa que a configuração está correta.
 
 1. Navegue até o diretório `/var`:
    ```bash
