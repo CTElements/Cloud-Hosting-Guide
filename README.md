@@ -159,7 +159,7 @@ Se o `ping` retornar o IP `168.75.86.183`, significa que a configuração está 
 
 2. Obtenha e instale o certificado SSL para o seu subdomínio:
    ```bash
-   sudo certbot --nginx -d app.nelsondev.com.br -d www.app.nelsondev.com.br
+   sudo certbot --nginx -d app.nelsondev.com.br
    ```
 
 3. Verifique a renovação automática do certificado:
